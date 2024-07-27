@@ -1,177 +1,171 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Lexend+Deca&display=swap');
 
 :root {
-  --very-dark-blue: hsl(233, 47%, 7%);
-  --dark-desaturated-blue: hsl(244, 38%, 16%);
-  --soft-violet: hsl(277, 64%, 61%);
-  --white: hsl(0, 0%, 100%);
-  --slightly-transparent-white-main: hsla(0, 0%, 100%, 0.75);
-  --slightly-transparent-white-stat: hsla(0, 0%, 100%, 0.6);
+  --color-bg: hsl(233, 47%, 7%);
+  --color-card-bg: hsl(244, 38%, 16%);
+  --color-accent: hsl(277, 64%, 61%);
+  --color-white: hsl(0, 0%, 100%);
+  --color-text-main: hsla(0, 0%, 100%, 0.75);
+  --color-text-stat: hsla(0, 0%, 100%, 0.6);
+  --font-primary: 'Inter', sans-serif;
+  --font-secondary: 'Lexend Deca', sans-serif;
 }
 
-* {
+/* Base styles */
+*, *::before, *::after {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 body {
-  font-family: 'Inter', sans-serif;
-  font-size: 15px;
+  font-family: var(--font-primary);
+  font-size: 0.9375rem;
   line-height: 1.6;
-  background-color: var(--very-dark-blue);
-  color: var(--white);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  background-color: var(--color-bg);
+  color: var(--color-white);
+  display: grid;
+  place-items: center;
   min-height: 100vh;
   padding: 1.5rem;
 }
 
-.wrapper {
-  background-color: var(--dark-desaturated-blue);
-  border-radius: 8px;
+/* Card styles */
+.stats-card {
+  background-color: var(--color-card-bg);
+  border-radius: 0.5rem;
   overflow: hidden;
-  max-width: 330px;
+  max-width: 20.625rem;
+  box-shadow: 0 1.25rem 2.5rem rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
 }
 
-.img-container {
+.stats-card__image {
   position: relative;
-  height: 240px;
+  flex: 0 0 auto;
 }
 
-.img-container::after {
+.stats-card__image::after {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: var(--soft-violet);
+  inset: 0;
+  background-color: var(--color-accent);
   opacity: 0.7;
   mix-blend-mode: multiply;
 }
 
-.img-container img {
+.stats-card__image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
-.content {
+.stats-card__content {
   padding: 2rem 1.5rem;
   text-align: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-h1 {
+.stats-card h1 {
   font-size: 1.8rem;
   margin-bottom: 1rem;
+  font-weight: 700;
 }
 
-h1 span {
-  color: var(--soft-violet);
+.stats-card h1 span {
+  color: var(--color-accent);
 }
 
-.content > p {
-  color: var(--slightly-transparent-white-main);
+.stats-card__content > p {
+  color: var(--color-text-main);
   margin-bottom: 2rem;
 }
 
-.stats {
+.stats-card__stats {
   list-style: none;
 }
 
-.stats li {
+.stats-card__stats li:not(:last-child) {
   margin-bottom: 1.5rem;
 }
 
-.stats strong {
+.stats-card__stats strong {
   display: block;
   font-size: 1.5rem;
   margin-bottom: 0.25rem;
+  font-weight: 700;
 }
 
-.stats span {
+.stats-card__stats span {
   text-transform: uppercase;
-  font-family: 'Lexend Deca', sans-serif;
+  font-family: var(--font-secondary);
   font-size: 0.8rem;
   letter-spacing: 1px;
-  color: var(--slightly-transparent-white-stat);
+  color: var(--color-text-stat);
 }
 
-.attribution {
+/* Footer styles */
+footer {
   margin-top: 2rem;
-  font-size: 11px;
+  font-size: 0.6875rem;
   text-align: center;
 }
 
-.attribution a {
-  color: var(--soft-violet);
+footer a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: opacity 0.3s ease;
 }
 
-/* Add this to the end of your existing CSS */
+footer a:hover {
+  opacity: 0.8;
+}
 
-@media screen and (min-width: 1024px) {
-    .wrapper {
-      display: flex;
-      flex-direction: row-reverse;
-      max-width: 1110px;
-    }
-  
-    .img-container {
-      width: 50%;
-      height: auto;
-    }
-  
-    .content {
-      width: 50%;
-      padding: 4rem;
-      text-align: left;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-  
-    h1 {
-      font-size: 2.5rem;
-      line-height: 1.2;
-      margin-bottom: 1.5rem;
-    }
-  
-    .content > p {
-      margin-bottom: 4rem;
-    }
-  
-    .stats {
-      display: flex;
-      justify-content: space-between;
-    }
-  
-    .stats li {
-      margin-bottom: 0;
-    }
+/* Media Queries */
+@media screen and (min-width: 48rem) {
+  .stats-card {
+    max-width: 69.375rem;
+    flex-direction: row-reverse;
   }
-  
-  @media screen and (min-width: 768px) and (max-width: 1023px) {
-    .wrapper {
-      max-width: 700px;
-    }
-  
-    .content {
-      padding: 3rem 2rem;
-    }
-  
-    h1 {
-      font-size: 2.2rem;
-    }
-  
-    .stats {
-      display: flex;
-      justify-content: space-around;
-    }
-  
-    .stats li {
-      margin-bottom: 0;
-    }
+
+  .stats-card__image,
+  .stats-card__content {
+    width: 50%;
   }
+
+  .stats-card__image {
+    flex: 0 0 50%;
+  }
+
+  .stats-card__image img {
+    height: 100%;
+  }
+
+  .stats-card__content {
+    text-align: left;
+    padding: 4rem;
+  }
+
+  .stats-card h1 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+  }
+
+  .stats-card__content > p {
+    margin-bottom: 4rem;
+  }
+
+  .stats-card__stats {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .stats-card__stats li {
+    margin-bottom: 0;
+  }
+}

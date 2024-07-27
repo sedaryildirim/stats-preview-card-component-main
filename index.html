@@ -1,37 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Stats preview card component challenge from Frontend Mentor">
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  <link rel="stylesheet" href="./assets/css/styles.css">
-  <title>Frontend Mentor | Stats preview card component</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Stats Preview Card Component showcasing business insights and analytics benefits">
+    <title>Stats Preview Card Component</title>
+    <link rel="stylesheet" href="./assets/css/styles.css">
 </head>
 <body>
-  <main class="wrapper">
-    <div class="img-container">
-      <img src="./assets/images/image-header-mobile.jpg" alt="Header image" width="654" height="480">
-    </div>
-
-    <article class="content">
-      <h1>Get <span>insights</span> that help your business grow.</h1>
-      <p>
-        Discover the benefits of data analytics and make better decisions regarding revenue, customer
-        experience, and overall efficiency.
-      </p>
-      
-      <ul class="stats">
-        <li><strong>10k+</strong> <span>companies</span></li>
-        <li><strong>314</strong> <span>templates</span></li>
-        <li><strong>12m+</strong> <span>queries</span></li>
-      </ul>
-    </article>
-  </main>
-
-  <footer class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank" rel="noopener">Frontend Mentor</a>.
-    Coded by <a href="https://www.frontendmentor.io/profile/sedaryildirim">Sedar Yildirim</a>.
-  </footer>
+    <main>
+        <article class="stats-card">
+            <picture class="stats-card__image">
+                <source media="(min-width: 768px)" srcset="./assets/images/image-header-desktop.jpg">
+                <img src="./assets/images/image-header-mobile.jpg" alt="People working in an office" width="654" height="480" loading="lazy">
+            </picture>
+            <div class="stats-card__content">
+                <h1>Get <span>insights</span> that help your business grow.</h1>
+                <p>Discover the benefits of data analytics and make better decisions regarding revenue, customer experience, and overall efficiency.</p>
+                <ul class="stats-card__stats">
+                    <li><strong>10k+</strong> <span>companies</span></li>
+                    <li><strong>314</strong> <span>templates</span></li>
+                    <li><strong>12M+</strong> <span>queries</span></li>
+                </ul>
+            </div>
+        </article>
+    </main>
+    <footer>
+        <p class="attribution">
+            Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank" rel="noopener noreferrer">Frontend Mentor</a>. 
+            Coded by <a href="https://www.frontendmentor.io/profile/sedaryildirim">Sedar Yildirim</a>.
+        </p>
+    </footer>
 </body>
 </html>
